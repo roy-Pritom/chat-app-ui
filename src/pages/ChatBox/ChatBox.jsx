@@ -6,17 +6,17 @@ import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const ChatBox = () => {
-    const {logOut}=useContext(authContext);
-    const navigate=useNavigate();
-    const handleLogOut=()=>{
-          logOut()
-          Swal.fire({
+    const { logOut } = useContext(authContext);
+    const navigate = useNavigate();
+    const handleLogOut = () => {
+        logOut()
+        Swal.fire({
             title: 'success',
             text: 'successfully logOut',
             icon: 'success',
             confirmButtonText: 'Cool'
-          })
-          navigate('/')
+        })
+        navigate('/')
 
     }
     return (
@@ -52,12 +52,15 @@ const ChatBox = () => {
                     <div className="">
                         <img src="https://s3-alpha-sig.figma.com/img/3e90/170e/9815ef0380d9b0157bf2554c4acfafd3?Expires=1691366400&Signature=RaAWFiAChIQBkUgJc7v6xopQeDsERzBj1cdUe~-A-O9bEEpbZ2TAV3Qa0HcnLtn-AtnzjfZ3M1hbF~GePWHFwrwlYnrmyE57b06XA4VU4XOOiPIv5jfFx5CyvqOorGYvNPw7mRRDU4W5oxib1XJLxGRJCekWLwj-DUSGte3baCAXa-OXW5XMb88eBwoOkHDCPRQwi50hW10x8XDkKbwi2rRBIldb7RJAAHPj5jxm9c9OYDD-k8jAmyaxVOT6olTu2BUP75hM0SRdIeDCvGBoOsnlKvFI7ONmY8qkgdFAC2zFEEA5pGMb-pKYPZlpUMvT8Rg4MhB9NgXl53IhAm6~3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" className="md:w-[60px] md:h[60px] w-[44px] h-[44px] rounded-[50%]" alt="" />
                     </div>
-                    <div className="text-white font-normal md:text-sm text-xs bg-[#69235B] p-4 rounded-lg mt-2 lg:w-[28%]">
+                    <div className="text-white font-normal md:text-sm text-xs bg-[#69235B] p-4  mt-2 lg:w-[28% box">
                         <p>
                             🙏 Namaste!  I’m Arya, your AI Vedic help. <br /> I'm here to provide insights from Vedas for <br /> daily life concerns.
                         </p>
                         <p className="mt-10">Whether you seek guidance on mantras,<br /> general life advice, or specific Vedic <br /> interpretations, I’m here to assist you.</p>
                     </div>
+              
+
+
                 </div>
                 <div className="flex gap-2 mt-7 justify-center md:justify-start md:ml-24">
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
@@ -86,7 +89,7 @@ const ChatBox = () => {
                     <div className="">
                         <img src="https://s3-alpha-sig.figma.com/img/3e90/170e/9815ef0380d9b0157bf2554c4acfafd3?Expires=1691366400&Signature=RaAWFiAChIQBkUgJc7v6xopQeDsERzBj1cdUe~-A-O9bEEpbZ2TAV3Qa0HcnLtn-AtnzjfZ3M1hbF~GePWHFwrwlYnrmyE57b06XA4VU4XOOiPIv5jfFx5CyvqOorGYvNPw7mRRDU4W5oxib1XJLxGRJCekWLwj-DUSGte3baCAXa-OXW5XMb88eBwoOkHDCPRQwi50hW10x8XDkKbwi2rRBIldb7RJAAHPj5jxm9c9OYDD-k8jAmyaxVOT6olTu2BUP75hM0SRdIeDCvGBoOsnlKvFI7ONmY8qkgdFAC2zFEEA5pGMb-pKYPZlpUMvT8Rg4MhB9NgXl53IhAm6~3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" className="md:w-[60px] md:h[60px] w-[44px] h-[44px] rounded-[50%]" alt="" />
                     </div>
-                    <div className="text-white font-normal md:text-sm text-xs bg-[#69235B] p-4 rounded-lg mt-2 w-20%]">
+                    <div className="text-white font-normal md:text-sm text-xs bg-[#69235B] p-4  mt-2 box">
                         <p>
                             Let your curiosity guide you; wishing <br /> you blessings and enlightenment 🕉️
                         </p>
@@ -116,13 +119,35 @@ const ChatBox = () => {
                         </p>
 
                     </div>
+
                 </div>
-                    <div className="relative flex items-center justify-start md:ml-20 ml-16 mt-2 ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="112" height="36" viewBox="0 0 112 36" fill="none">
-                            <path d="M0 0H94C99.5913 0 102.387 0 104.592 0.913446C107.533 2.13137 109.869 4.46746 111.087 7.4078C112 9.61305 112 12.4087 112 18C112 23.5913 112 26.3869 111.087 28.5922C109.869 31.5325 107.533 33.8686 104.592 35.0866C102.387 36 99.5913 36 94 36H18C12.4087 36 9.61305 36 7.4078 35.0866C4.46746 33.8686 2.13137 31.5325 0.913446 28.5922C0 26.3869 0 23.5913 0 18V0Z" fill="#69235B" />
-                        </svg>
-                        <p className="absolute left-0 ml-1 text-white font-normal md:text-sm text-xs ">Hope you like it</p>
+                <div className="relative flex items-center justify-end mt-16 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="145" height="36" viewBox="0 0 145 36" fill="none">
+                        <path d="M145 0H18C12.4087 0 9.61305 0 7.40779 0.913446C4.46745 2.13137 2.13136 4.46746 0.913437 7.4078C0 9.61305 0 12.4087 0 18C0 23.5913 0 26.3869 0.913437 28.5922C2.13136 31.5325 4.46745 33.8686 7.40779 35.0866C9.61305 36 12.4087 36 18 36H127C132.591 36 135.387 36 137.592 35.0866C140.533 33.8686 142.869 31.5325 144.087 28.5922C145 26.3869 145 23.5913 145 18V0Z" fill="#FBBC04" />
+                    </svg>
+                    <p className="absolute right-0 mr-1 text-white font-normal md:text-sm text-xs">
+                        You did your job well!
+                    </p>
+
+                </div>
+                {/* fjdgjhnk */}
+                <div className="flex gap-4 mt-12">
+                    <div className="">
+                        <img src="https://s3-alpha-sig.figma.com/img/3e90/170e/9815ef0380d9b0157bf2554c4acfafd3?Expires=1691366400&Signature=RaAWFiAChIQBkUgJc7v6xopQeDsERzBj1cdUe~-A-O9bEEpbZ2TAV3Qa0HcnLtn-AtnzjfZ3M1hbF~GePWHFwrwlYnrmyE57b06XA4VU4XOOiPIv5jfFx5CyvqOorGYvNPw7mRRDU4W5oxib1XJLxGRJCekWLwj-DUSGte3baCAXa-OXW5XMb88eBwoOkHDCPRQwi50hW10x8XDkKbwi2rRBIldb7RJAAHPj5jxm9c9OYDD-k8jAmyaxVOT6olTu2BUP75hM0SRdIeDCvGBoOsnlKvFI7ONmY8qkgdFAC2zFEEA5pGMb-pKYPZlpUMvT8Rg4MhB9NgXl53IhAm6~3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" className="md:w-[60px] md:h[60px] w-[44px] h-[44px] rounded-[50%]" alt="" />
                     </div>
+                    <div className="relative flex items-center justify-start  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="184" height="36" viewBox="0 0 184 36" fill="none">
+                            <path d="M0 0H166C171.591 0 174.387 0 176.592 0.913446C179.533 2.13137 181.869 4.46746 183.087 7.4078C184 9.61305 184 12.4087 184 18C184 23.5913 184 26.3869 183.087 28.5922C181.869 31.5325 179.533 33.8686 176.592 35.0866C174.387 36 171.591 36 166 36H18C12.4087 36 9.61305 36 7.4078 35.0866C4.46746 33.8686 2.13137 31.5325 0.913446 28.5922C0 26.3869 0 23.5913 0 18V0Z" fill="#69235B" />
+                        </svg>
+                        <p className="absolute left-0 ml-1 text-white font-normal md:text-sm text-xs ">Have a great working week!!</p>
+                    </div>
+                </div>
+                <div className="relative flex items-center justify-start md:ml-20 ml-16 mt-2 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="112" height="36" viewBox="0 0 112 36" fill="none">
+                        <path d="M0 0H94C99.5913 0 102.387 0 104.592 0.913446C107.533 2.13137 109.869 4.46746 111.087 7.4078C112 9.61305 112 12.4087 112 18C112 23.5913 112 26.3869 111.087 28.5922C109.869 31.5325 107.533 33.8686 104.592 35.0866C102.387 36 99.5913 36 94 36H18C12.4087 36 9.61305 36 7.4078 35.0866C4.46746 33.8686 2.13137 31.5325 0.913446 28.5922C0 26.3869 0 23.5913 0 18V0Z" fill="#69235B" />
+                    </svg>
+                    <p className="absolute left-0 ml-1 text-white font-normal md:text-sm text-xs ">Hope you like it</p>
+                </div>
 
                 {/* send */}
 
