@@ -1,6 +1,31 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Home = () => {
+    const {loginWithGoogle}=useContext(authContext);
+    const navigate=useNavigate();
+    const googleLogin=()=>{
+        loginWithGoogle()
+        .then(result=>{
+            const loggedUser=result.user;
+            console.log(loggedUser);
+
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Login successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              navigate('/login/chat')
+
+        })
+        .catch(error=>{
+            console.log(error.message);
+          })
+    }
     return (
         <div className="relative">
             <div className="">
@@ -26,7 +51,7 @@ const Home = () => {
                                     <path d="M28.0998 21.1523L28.6318 17.6836H25.3037V15.4326C25.3037 14.4836 25.7686 13.5586 27.2593 13.5586H28.7725V10.6055C28.7725 10.6055 27.3992 10.3711 26.0863 10.3711C23.3452 10.3711 21.5537 12.0323 21.5537 15.0398V17.6836H18.5068V21.1523H21.5537V29.5378C22.174 29.635 22.8009 29.6838 23.4287 29.6836C24.0666 29.6836 24.6928 29.6337 25.3037 29.5378V21.1523H28.0998Z" fill="white" />
                                 </svg>
                             </button>
-                            <button className="btn btn-circle btn-outline border-white">
+                            <button onClick={googleLogin} className="btn btn-circle btn-outline border-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" viewBox="0 0 46 36" fill="none">
                                     <path d="M34.5649 18.4852C34.5659 17.6961 34.4992 16.9085 34.3655 16.1309H23.4463V20.5902H29.7003C29.5724 21.3024 29.3015 21.9814 28.904 22.5861C28.5066 23.1908 27.9908 23.7088 27.3878 24.1088V27.0035H31.1203C33.3058 24.9885 34.5649 22.0086 34.5649 18.4852Z" fill="#4285F4" />
                                     <path d="M23.4462 29.8001C26.5708 29.8001 29.2017 28.7741 31.1202 27.0051L27.3878 24.1105C26.3489 24.8148 25.0109 25.2169 23.4462 25.2169C20.4261 25.2169 17.8628 23.181 16.9461 20.4375H13.1011V23.4206C14.0648 25.3383 15.5425 26.9503 17.3693 28.0768C19.1961 29.2034 21.3 29.8 23.4462 29.8001Z" fill="#34A853" />

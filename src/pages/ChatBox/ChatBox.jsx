@@ -1,14 +1,34 @@
+import { useContext } from "react";
+import { authContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const ChatBox = () => {
+    const {logOut}=useContext(authContext);
+    const navigate=useNavigate();
+    const handleLogOut=()=>{
+          logOut()
+          Swal.fire({
+            title: 'success',
+            text: 'successfully logOut',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+          navigate('/')
+
+    }
     return (
         <div>
             <div className="flex items-center justify-between pl-7 py-2 mb-5">
                 <div className="flex items-center justify-center gap-5">
-                    <div className="">
+                    <button onClick={handleLogOut} id="logOut">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M10 8L6 12M6 12L10 16M6 12L18 12" stroke="#69235B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                    </div>
+                    </button>
+                    <ReactTooltip anchorId="logOut" place="bottom" content={'logOut'}></ReactTooltip>
                     <div className="relative">
                         <img src="https://s3-alpha-sig.figma.com/img/3e90/170e/9815ef0380d9b0157bf2554c4acfafd3?Expires=1691366400&Signature=RaAWFiAChIQBkUgJc7v6xopQeDsERzBj1cdUe~-A-O9bEEpbZ2TAV3Qa0HcnLtn-AtnzjfZ3M1hbF~GePWHFwrwlYnrmyE57b06XA4VU4XOOiPIv5jfFx5CyvqOorGYvNPw7mRRDU4W5oxib1XJLxGRJCekWLwj-DUSGte3baCAXa-OXW5XMb88eBwoOkHDCPRQwi50hW10x8XDkKbwi2rRBIldb7RJAAHPj5jxm9c9OYDD-k8jAmyaxVOT6olTu2BUP75hM0SRdIeDCvGBoOsnlKvFI7ONmY8qkgdFAC2zFEEA5pGMb-pKYPZlpUMvT8Rg4MhB9NgXl53IhAm6~3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" className="md:w-[60px] md:h[60px] w-[44px] h-[44px] rounded-[50%]" />
                         <div className="absolute md:left-[45px] md:top-[35px] left-[32px] top-[35px]">

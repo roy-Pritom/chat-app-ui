@@ -1,12 +1,17 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+
 
 const Login = () => {
 
-    const { login } = useContext(authContext);
+    const { login,loginWithGoogle} = useContext(authContext);
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
+
     const navigate = useNavigate();
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,24 +22,65 @@ const Login = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Login successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
             setSuccess('successfully login');
             form.reset();
+            navigate('/login/chat')
 
         })
         .catch(error => {
             setError(error.message)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error.message}`,
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
 
         })
 
     }
+    const googleLogin=()=>{
+        loginWithGoogle()
+        .then(result=>{
+            const loggedUser=result.user;
+            console.log(loggedUser);
+
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Login successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              navigate('/login/chat')
+
+        })
+        .catch(error=>{
+            console.log(error.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error.message}`,
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
+          })
+    }
     return (
         <div className="">
             <Link to='/'>
-                <button className="md:mt-8 mt-6 ml-5">
+                <button className="md:mt-8 mt-6 ml-5" id="title">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M10 8L6 12M6 12L10 16M6 12L18 12" stroke="#000E08" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
+                <ReactTooltip anchorId="title" place="bottom" content={'Back'}></ReactTooltip>
             </Link>
             <div className="md:mt-10 mt-7 md:px-11 px-8">
                 <h2 className="text-[#69235B] font-bold md:text-5xl text-xl text-center mb-7">Log in to Mokx</h2>
@@ -48,7 +94,7 @@ const Login = () => {
                             <path d="M28.0998 21.1523L28.6318 17.6836H25.3037V15.4326C25.3037 14.4836 25.7686 13.5586 27.2593 13.5586H28.7725V10.6055C28.7725 10.6055 27.3992 10.3711 26.0863 10.3711C23.3452 10.3711 21.5537 12.0323 21.5537 15.0398V17.6836H18.5068V21.1523H21.5537V29.5378C22.174 29.635 22.8009 29.6838 23.4287 29.6836C24.0666 29.6836 24.6928 29.6337 25.3037 29.5378V21.1523H28.0998Z" fill="white" />
                         </svg>
                     </button>
-                    <button className="btn btn-circle btn-outline border-black">
+                    <button  onClick={googleLogin} className="btn btn-circle btn-outline border-black">
                         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" viewBox="0 0 46 36" fill="none">
                             <path d="M34.5649 18.4852C34.5659 17.6961 34.4992 16.9085 34.3655 16.1309H23.4463V20.5902H29.7003C29.5724 21.3024 29.3015 21.9814 28.904 22.5861C28.5066 23.1908 27.9908 23.7088 27.3878 24.1088V27.0035H31.1203C33.3058 24.9885 34.5649 22.0086 34.5649 18.4852Z" fill="#4285F4" />
                             <path d="M23.4462 29.8001C26.5708 29.8001 29.2017 28.7741 31.1202 27.0051L27.3878 24.1105C26.3489 24.8148 25.0109 25.2169 23.4462 25.2169C20.4261 25.2169 17.8628 23.181 16.9461 20.4375H13.1011V23.4206C14.0648 25.3383 15.5425 26.9503 17.3693 28.0768C19.1961 29.2034 21.3 29.8 23.4462 29.8001Z" fill="#34A853" />
@@ -69,20 +115,22 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Your email</span>
                             </label>
-                            <input type="email" placeholder="email" name="email" className="input input-bordered" />
+                            <input type="email" placeholder="email" required name="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password" required placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="mt-10">
                             <input type="submit" className="btn bg-[#FBDC94] text-[#EDA0A8] md:text-2xl text-xl font-medium rounded-md  md:w-full w-[300px] border-none capitalize" value="Login" />
                         </div>
 
                     </form>
-                    <p className="text-[#FBBC04] font-normal text-xl text-center mt-6 md:mb-8 mb-6"><Link to='/login/chat'>Forgot Password</Link>?</p>
+                    <p className="text-[#FBBC04] font-normal text-xl text-center mt-6  mb-6">Forgot Password?</p>
+                    <p className="text-red-600 text-center m-0">{error}</p>
+                    <p className="text-green-600 text-center m-0">{success}</p>
                 </div>
             </div>
         </div>
