@@ -1,14 +1,40 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+
+    const { login } = useContext(authContext);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const form=e.target;
+        const email=form.email.value;
+        const password=form.password.value;
+        login(email,password)
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setSuccess('successfully login');
+            form.reset();
+
+        })
+        .catch(error => {
+            setError(error.message)
+
+        })
+
+    }
     return (
         <div className="">
             <Link to='/'>
-            <button className="md:mt-8 mt-6 ml-5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M10 8L6 12M6 12L10 16M6 12L18 12" stroke="#000E08" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
+                <button className="md:mt-8 mt-6 ml-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10 8L6 12M6 12L10 16M6 12L18 12" stroke="#000E08" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
             </Link>
             <div className="md:mt-10 mt-7 md:px-11 px-8">
                 <h2 className="text-[#69235B] font-bold md:text-5xl text-xl text-center mb-7">Log in to Mokx</h2>
@@ -38,25 +64,25 @@ const Login = () => {
                 </div>
                 <div className="divider md:w-[70%] md:mx-auto text-[#69235B] md:text-lg text-sm font-thin">OR</div>
                 <div className="md:w-1/2 mx-auto">
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Your email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
+                            <input type="email" placeholder="email" name="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Password</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="mt-10">
-                            <input type="submit" className="btn bg-[#FBDC94] text-[#EDA0A8] md:text-2xl text-xl font-medium rounded-md lg:w-[700px] md:w-full w-[300px] border-none capitalize" value="Login" />
+                            <input type="submit" className="btn bg-[#FBDC94] text-[#EDA0A8] md:text-2xl text-xl font-medium rounded-md  md:w-full w-[300px] border-none capitalize" value="Login" />
                         </div>
 
                     </form>
-                    <p className="text-[#FBBC04] font-normal text-xl text-center mt-6 md:mb-8 mb-6">Forgot Password?</p>
+                    <p className="text-[#FBBC04] font-normal text-xl text-center mt-6 md:mb-8 mb-6"><Link to='/login/chat'>Forgot Password</Link>?</p>
                 </div>
             </div>
         </div>

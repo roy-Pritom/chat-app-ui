@@ -6,6 +6,8 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Layout from "../Layout/Layout";
+import ChatBox from "../pages/ChatBox/ChatBox";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -15,16 +17,27 @@ const router = createBrowserRouter([
               path:'/',
               element:<Home></Home>
             },
+           
+        ]
+    },
+    {
+        path:'/login',
+        element:<Layout></Layout>,
+        children:[
             {
-                path:'/login',
+                path:'/login/login',
                 element:<Login></Login>
             },
             {
-                path:'/register',
+                path:'/login/register',
                 element:<Register></Register>
             },
+            {
+                path:'/login/chat',
+                element:<ChatBox></ChatBox>
+            },
         ]
-    },
+    }
 ]);
 
 export default router;

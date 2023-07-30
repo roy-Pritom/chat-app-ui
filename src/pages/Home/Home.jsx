@@ -7,7 +7,7 @@ const Home = () => {
                 <img src="https://s3-alpha-sig.figma.com/img/3e90/170e/9815ef0380d9b0157bf2554c4acfafd3?Expires=1691366400&Signature=RaAWFiAChIQBkUgJc7v6xopQeDsERzBj1cdUe~-A-O9bEEpbZ2TAV3Qa0HcnLtn-AtnzjfZ3M1hbF~GePWHFwrwlYnrmyE57b06XA4VU4XOOiPIv5jfFx5CyvqOorGYvNPw7mRRDU4W5oxib1XJLxGRJCekWLwj-DUSGte3baCAXa-OXW5XMb88eBwoOkHDCPRQwi50hW10x8XDkKbwi2rRBIldb7RJAAHPj5jxm9c9OYDD-k8jAmyaxVOT6olTu2BUP75hM0SRdIeDCvGBoOsnlKvFI7ONmY8qkgdFAC2zFEEA5pGMb-pKYPZlpUMvT8Rg4MhB9NgXl53IhAm6~3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" className="md:h-[640px] h-[304px] w-full" alt="" />
             </div>
             <div className="bg-[#69235B]">
-                <div className="bg-[#CBCBFF] w-[240px] h-[50px] px-3 flex justify-center items-center rounded-md mx-auto absolute lg:left-[650px] right-auto lg:top-[610px] left-[72px] top-[274px]  md:left-[280px] md:top-[610px]">
+                <div className="bg-[#CBCBFF] w-[240px] h-[50px] px-3 flex justify-center items-center rounded-md mx-auto absolute lg:left-[500px] right-auto lg:top-[610px] left-[72px] top-[274px]  md:left-[280px] md:top-[610px]">
                     <p className="text-[#69235B] text-xl font-medium  ">Arya, Vedic AI Guide</p>
                 </div>
                 <div className="flex justify-center items-center ">
@@ -48,12 +48,12 @@ const Home = () => {
                         </div>
 
                         <div className="flex justify-center">
-                          <Link to='/register'>
+                          <Link to='/login/register'>
                           <button className="btn bg-[#FFC746] text-[#69235B] text-2xl font-medium rounded-md md:w-[600px] w-[340px] border-none"><span className="capitalize">Sign</span> <span className="lowercase">up with mail</span></button>
                           </Link>
                         </div>
 
-                        <p className="text-2xl mt-6 font-normal text-center text-white md:mb-14 mb-10">Existing account? <span className="text-[#FBBC04]"><Link to='/login'>
+                        <p className="text-2xl mt-6 font-normal text-center text-white md:mb-14 mb-10">Existing account? <span className="text-[#FBBC04]"><Link to='/login/login'>
                         Log in</Link></span></p>
                     </div>
                 </div>

@@ -1,6 +1,41 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+    const { cerateUser, logOut } = useContext(authContext);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        setSuccess('');
+        setError('');
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+        if (password.length < 6) {
+            setError('Password should be 6 character');
+            return;
+        }
+        cerateUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setSuccess('Successfully register');
+                form.reset();
+                logOut();
+                navigate('/login/login')
+
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+
+    }
+
     return (
         <div className="">
             <Link to='/'>
@@ -18,37 +53,37 @@ const Register = () => {
 
 
                 <div className="md:w-1/2 mx-auto md:mt-10 mt-6">
-                    <form>
+                    <form onSubmit={handleSignUp}>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Your name</span>
                             </label>
-                            <input type="text" placeholder="name" className="input input-bordered" />
+                            <input type="text" placeholder="name" name="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Your email</span>
                             </label>
-                            <input type="text" placeholder="email" className="input input-bordered" />
+                            <input type="email" name="email" placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Password</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="text" name="password" placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Confirm Password</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="text" name="confirmPassword" placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="mt-10">
-                            <input type="submit" className="btn bg-[#FBDC94] text-[#EDA0A8] md:text-2xl text-xl font-medium rounded-md lg:w-[700px] md:w-full w-[300px] border-none capitalize md:mb-12 mbb-8" value="Create an account" />
+                            <input type="submit" className="btn bg-[#FBDC94] text-[#EDA0A8] md:text-2xl text-xl font-medium rounded-md  md:w-full w-[300px] border-none capitalize md:mb-12 mbb-8" value="Create an account" />
                         </div>
 
                     </form>
-            
+
                 </div>
             </div>
         </div>
