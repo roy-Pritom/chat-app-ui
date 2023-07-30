@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAIyU1bev3mVya0GEDHEk1WGEABySiijlE",
-  authDomain: "chat-app-ui-6da31.firebaseapp.com",
-  projectId: "chat-app-ui-6da31",
-  storageBucket: "chat-app-ui-6da31.appspot.com",
-  messagingSenderId: "622566056719",
-  appId: "1:622566056719:web:1cab4c10ecbec549c5d47a"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase

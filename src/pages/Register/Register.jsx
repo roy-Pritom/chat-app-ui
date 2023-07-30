@@ -86,25 +86,25 @@ Swal.fire({
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Your name</span>
                             </label>
-                            <input type="text" placeholder="name" name="name" className="input input-bordered" />
+                            <input type="text" placeholder="name" required name="name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Your email</span>
                             </label>
-                            <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                            <input type="email" name="email" required placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Password</span>
                             </label>
-                            <input type="text" name="password" placeholder="password" className="input input-bordered" />
+                            <input type="password" name="password" required placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-[#69235B] md:text-lg text-sm font-medium">Confirm Password</span>
                             </label>
-                            <input type="text" name="confirmPassword" placeholder="password" className="input input-bordered" />
+                            <input type="password" required name="confirmPassword" placeholder="password" className="input input-bordered" />
                         </div>
                         <div className="mt-10">
                             <input type="submit" className="btn bg-[#FBDC94] text-[#EDA0A8] md:text-2xl text-xl font-medium rounded-md  md:w-full w-[300px] border-none capitalize md:mb-12 mbb-8" value="Create an account" />
