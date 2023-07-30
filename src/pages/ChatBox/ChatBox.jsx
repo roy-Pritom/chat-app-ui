@@ -6,7 +6,7 @@ const ChatBox = () => {
                 <div className="flex items-center justify-center gap-5">
                     <div className="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M10 8L6 12M6 12L10 16M6 12L18 12" stroke="#69235B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10 8L6 12M6 12L10 16M6 12L18 12" stroke="#69235B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
                     <div className="relative">
@@ -56,8 +56,8 @@ const ChatBox = () => {
                 </div>
                 <div className="flex items-center md:gap-2 gap-1 mt-6 md:ml-8 ml-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="14" viewBox="0 0 17 14" fill="none">
-                        <path d="M8.5 1L1 13H16L8.5 1Z" stroke="#69235B" stroke-linejoin="round" />
-                        <path d="M8.5 10.4737V10.7895M8.5 5.42104L8.50316 8.57894" stroke="#69235B" stroke-linecap="round" />
+                        <path d="M8.5 1L1 13H16L8.5 1Z" stroke="#69235B" strokeLinejoin="round" />
+                        <path d="M8.5 10.4737V10.7895M8.5 5.42104L8.50316 8.57894" stroke="#69235B" strokeLinecap="round" />
                     </svg>
                     <p className="text-[#69235B] md:text-base text-[13px] font-normal">Limitation: May struggle with complex queries.</p>
                 </div>
@@ -114,12 +114,12 @@ const ChatBox = () => {
 
                         </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <g clip-path="url(#clip0_582_842)">
-                                <path d="M12 15.5C14.21 15.5 16 13.71 16 11.5V6C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6V11.5C8 13.71 9.79 15.5 12 15.5Z" stroke="#CECECE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M4.34998 9.64999V11.35C4.34998 15.57 7.77998 19 12 19C16.22 19 19.65 15.57 19.65 11.35V9.64999" stroke="#CECECE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M10.61 6.43C11.51 6.1 12.49 6.1 13.39 6.43" stroke="#CECECE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M11.2 8.55001C11.73 8.41001 12.28 8.41001 12.81 8.55001" stroke="#CECECE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M12 19V22" stroke="#CECECE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <g clipPath="url(#clip0_582_842)">
+                                <path d="M12 15.5C14.21 15.5 16 13.71 16 11.5V6C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6V11.5C8 13.71 9.79 15.5 12 15.5Z" stroke="#CECECE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M4.34998 9.64999V11.35C4.34998 15.57 7.77998 19 12 19C16.22 19 19.65 15.57 19.65 11.35V9.64999" stroke="#CECECE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10.61 6.43C11.51 6.1 12.49 6.1 13.39 6.43" stroke="#CECECE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M11.2 8.55001C11.73 8.41001 12.28 8.41001 12.81 8.55001" stroke="#CECECE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M12 19V22" stroke="#CECECE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </g>
                             <defs>
                                 <clipPath id="clip0_582_842">

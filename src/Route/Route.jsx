@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Layout from "../Layout/Layout";
 import ChatBox from "../pages/ChatBox/ChatBox";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/login/chat',
-                element:<ChatBox></ChatBox>
+                element:<PrivateRoute><ChatBox></ChatBox></PrivateRoute>
             },
         ]
     }
