@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -47,10 +48,13 @@ const Home = () => {
                         </div>
 
                         <div className="flex justify-center">
-                            <button className="btn bg-[#FFC746] text-[#69235B] text-2xl font-medium rounded-md md:w-[600px] w-[340px] border-none"><span className="capitalize">Sign</span> <span className="lowercase">up with mail</span></button>
+                          <Link to='/register'>
+                          <button className="btn bg-[#FFC746] text-[#69235B] text-2xl font-medium rounded-md md:w-[600px] w-[340px] border-none"><span className="capitalize">Sign</span> <span className="lowercase">up with mail</span></button>
+                          </Link>
                         </div>
 
-                        <p className="text-2xl mt-6 font-normal text-center text-white md:mb-14 mb-10">Existing account? <span className="text-[#FBBC04]"> Log in</span></p>
+                        <p className="text-2xl mt-6 font-normal text-center text-white md:mb-14 mb-10">Existing account? <span className="text-[#FBBC04]"><Link to='/login'>
+                        Log in</Link></span></p>
                     </div>
                 </div>
 
